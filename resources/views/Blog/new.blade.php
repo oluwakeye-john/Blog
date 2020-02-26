@@ -1,0 +1,138 @@
+@extends('Blog.app')
+
+@section('content')
+    <div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="container">
+
+                <!--Section: Contact v.2-->
+                <section class="mb-4">
+
+                    <!--Section heading-->
+                    <h2 class="h1-responsive font-weight-bold text-center my-4">New Blog</h2>
+                    <!--Section description-->
+                    <p class="text-center w-responsive mx-auto mb-5"></p>
+
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12 mb-md-0 mb-5">
+                            <form id="new_form" method="POST" enctype="multipart/form-data">
+                            @csrf
+
+                            <!--Grid row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="subject" name="title" class="form-control" required autofocus>
+                                            <label for="subject" class="">Title*</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <label>Cover Image*</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" id="image" accept="image/*" class="custom-file-input" name="image" required>
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <div class="text-center" id="avt">
+
+                                </div>
+                                <br>
+                                <!--Grid row-->
+
+                                <!--Grid row-->
+                                <div class="row">
+
+                                    <!--Grid column-->
+                                    <div class="col-md-12">
+
+                                        <div class="md-form">
+
+                                            <textarea type="text" id="contents" name="contents" rows="10" class="contents form-control md-textarea"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+
+                                <!-- Default checked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="defaultChecked2" checked name="published" value="1">
+                                    <label class="custom-control-label" for="defaultChecked2">Publish</label>
+                                </div>
+
+                                <br>
+                                <!--Grid row-->
+                                <div class="text-center text-md-left">
+                                    <input type="submit" id="submit" name="" class="btn btn-primary" value="POST">
+                                </div>
+
+                            </form>
+
+                            <div class="status"></div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-3 text-center">
+
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+
+                </section>
+                <!--Section: Contact v.2-->
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+    <script src="{{ asset('public/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+
+    <script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+
+    <script>
+
+        $("#image").change(function () {
+            var q = $("#image").val()
+            console.log(q);
+            var output = document.getElementById("image");
+            output.src = URL.createObjectURL(event.target.files[0]);
+            document.getElementById("avt").innerHTML = "<br><img class=\"img-fluid responsive\" width=\"500px\" src='" + output.src +  "' class='rounded'>";
+            console.log(output.src);
+        })
+
+        CKEDITOR.replace( 'contents' );
+
+        // tinymce.init({
+        //     selector:'textarea.contents2',
+        //     plugins: 'preview, image',
+        //
+        // });
+
+
+
+
+    </script>
+
+
+@endsection

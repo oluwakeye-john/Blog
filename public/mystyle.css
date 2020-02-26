@@ -1,0 +1,23 @@
+.cbutton {
+    background-color: #4CAF50;
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+}
+
+.cbutton1 {border-radius: 2px;}
+.cbutton2 {border-radius: 4px;}
+.cbutton3 {border-radius: 8px;}
+.cbutton4 {border-radius: 12px;}
+.cbutton5 {border-radius: 50%;}
